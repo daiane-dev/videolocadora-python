@@ -1,0 +1,15 @@
+# Ambiente virtual
+.venv/
+
+# Variáveis de ambiente (NÃO subir senhas)
+.env
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# MacOS
+.DS_Store
+
+# Logs (se surgir no futuro)
+*.log
