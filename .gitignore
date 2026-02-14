@@ -13,3 +13,5 @@ __pycache__/
 
 # Logs (se surgir no futuro)
 *.log
+
+*.code-workspace
