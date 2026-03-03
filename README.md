@@ -1,4 +1,4 @@
-# 🎬 Videolocadora – Backend em Python (FastAPI + MySQL)
+# Videolocadora – Backend em Python (FastAPI + MySQL)
 
 Projeto completo de backend desenvolvido em **Python**, utilizando **FastAPI** e **MySQL**, simulando o sistema de uma videolocadora com:
 
