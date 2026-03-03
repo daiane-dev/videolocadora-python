@@ -77,9 +77,9 @@ Arquitetura modular com separação por domínio, permitindo escalabilidade e ma
 
 ---
 
-# 📌 Funcionalidades da API
+# Funcionalidades da API
 
-## 🎥 Filmes
+## Filmes
 - Criar filme
 - Atualizar filme
 - Inativar / Ativar
@@ -88,13 +88,13 @@ Arquitetura modular com separação por domínio, permitindo escalabilidade e ma
 - Verificar disponibilidade
 - Ranking via view
 
-## 👤 Usuários
+## Usuários
 - CRUD completo
 - Histórico de locações
 - Gasto total por usuário
 - Ranking de usuários por gasto
 
-## 📦 Locações
+## Locações
 - Criar locação
 - Devolver locação
 - Listar abertas
@@ -102,19 +102,19 @@ Arquitetura modular com separação por domínio, permitindo escalabilidade e ma
 - Locações por usuário
 - Locações por filme
 
-## 📊 Dashboard
+## Dashboard
 - Resumo geral
 - Faturamento por período
 - Série temporal (dia/mês)
 - Faturamento por gênero
 
-## 📈 Views
+## Views
 - Ranking de filmes
 - Faturamento mensal
 
 ---
 
-# 🔄 Processo de ETL
+# Processo de ETL
 
 O projeto também inclui um pipeline de ETL responsável por:
 
