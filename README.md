@@ -199,6 +199,6 @@ http://127.0.0.1:8000/docs
 
 #  Autora
 
-Daiane Cristina  
-Desenvolvedora Backend em transição de carreira  
+**Daiane Cristina**  
+Backend Developer (em transição de carreira)  
 GitHub: https://github.com/daiane-dev
