@@ -42,7 +42,7 @@ Este projeto foi desenvolvido como prática de:
 
 ---
 
-# 📁 Estrutura do Projeto
+# Estrutura do Projeto
 
 ```
 videolocadora-python/
@@ -128,7 +128,7 @@ Isso permite simular carga inicial de dados no sistema.
 
 ---
 
-# ▶️ Como rodar o projeto
+# Como rodar o projeto
 
 ## Clonar o repositório
 
