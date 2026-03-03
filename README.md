@@ -19,7 +19,7 @@ Este projeto foi desenvolvido como prática de:
 
 ---
 
-# 🚀 Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 ## Backend
 - Python 3.9+
