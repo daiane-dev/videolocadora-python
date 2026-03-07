@@ -7,11 +7,20 @@
 # Cache Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Pytest
+.pytest_cache/
+
+# VSCode
+.vscode/
 
 # MacOS
 .DS_Store
 
-# Logs (se surgir no futuro)
+# Logs
 *.log
 
+# Arquivos de workspace
 *.code-workspace
