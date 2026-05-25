@@ -112,5 +112,4 @@ if __name__ == "__main__":
         print("Uso: python3 -m etl.load_locacoes data/locacoes.csv")
         raise SystemExit(1)
 
-    main(sys.argv[1], reset=True)
-    
+    main(sys.argv[1], reset=False)
