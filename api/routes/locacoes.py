@@ -2,119 +2,33 @@ from fastapi import APIRouter, HTTPException
 from typing import Optional
 from datetime import date
 from etl.db import get_conn
-
+from api.services import locacoes_service
 
 router = APIRouter(prefix="/locacoes")
 
-
 @router.get("/abertas")
 def listar_locacoes_abertas(limit: int = 50, offset: int = 0):
-    conn = get_conn()
-    try:
-        cur = conn.cursor(dictionary=True)
-        cur.execute(
-            """
-            SELECT
-                l.id_locacao,
-                u.nome_usuario,
-                f.nome_filme,
-                l.data_locacao,
-                l.data_prevista_locacao,
-                l.valor_diaria,
-                l.dias,
-                l.valor_total,
-                l.status_locacao
-            FROM locacoes l
-            JOIN usuarios u ON u.id = l.id_usuario
-            JOIN filmes f ON f.id = l.id_filme
-            WHERE l.status_locacao = 'ABERTA'
-            ORDER BY l.data_prevista_locacao
-            LIMIT %s OFFSET %s
-            """,
-            (limit, offset),
-        )
-        return cur.fetchall()
-    finally:
-        conn.close()
+    return locacoes_service.listar_locacoes_abertas(
+        limit=limit,
+        offset=offset,
+    )
 
 
 @router.get("/atrasadas")
 def listar_locacoes_atrasadas(limit: int = 50, offset: int = 0):
-    conn = get_conn()
-    try:
-        cur = conn.cursor(dictionary=True)
-        cur.execute(
-            """
-            SELECT
-              l.id_locacao,
-              u.nome_usuario,
-              f.nome_filme,
-              l.data_locacao,
-              l.data_prevista_locacao,
-              l.valor_diaria,
-              l.dias,
-              l.valor_total,
-              l.status_locacao
-            FROM locacoes l
-            JOIN usuarios u ON u.id = l.id_usuario
-            JOIN filmes f ON f.id = l.id_filme
-            WHERE l.status_locacao = 'ABERTA'
-              AND l.data_prevista_locacao < CURDATE()
-            ORDER BY l.data_prevista_locacao ASC
-            LIMIT %s OFFSET %s
-            """,
-            (limit, offset),
-        )
-
-        rows = cur.fetchall()
-        hoje = date.today()
-        for r in rows:
-            prevista = r["data_prevista_locacao"]
-            r["dias_atraso"] = (hoje - prevista).days if prevista else None
-
-        return rows
-    finally:
-        conn.close()
+    return locacoes_service.listar_locacoes_atrasadas(
+        limit=limit,
+        offset=offset,
+    )
 
 
 @router.get("/por-usuario/{id_usuario}")
 def listar_locacoes_por_usuario(id_usuario: int, limit: int = 50, offset: int = 0):
-    conn = get_conn()
-    try:
-        cur = conn.cursor(dictionary=True)
-
-        cur.execute("SELECT 1 FROM usuarios WHERE id = %s", (id_usuario,))
-        if cur.fetchone() is None:
-            raise HTTPException(status_code=404, detail="Usuário não encontrado")
-
-        cur.execute(
-            """
-            SELECT
-              l.id_locacao,
-              l.id_usuario,
-              u.nome_usuario,
-              l.id_filme,
-              f.nome_filme,
-              l.data_locacao,
-              l.data_prevista_locacao,
-              l.data_devolucao,
-              l.valor_diaria,
-              l.dias,
-              l.valor_total,
-              l.status_locacao
-            FROM locacoes l
-            JOIN usuarios u ON u.id = l.id_usuario
-            JOIN filmes f ON f.id = l.id_filme
-            WHERE l.id_usuario = %s
-            ORDER BY l.data_locacao DESC, l.id_locacao DESC
-            LIMIT %s OFFSET %s
-            """,
-            (id_usuario, limit, offset),
-        )
-
-        return cur.fetchall()
-    finally:
-        conn.close()
+    return locacoes_service.listar_locacoes_por_usuario(
+        id_usuario=id_usuario,
+        limit=limit,
+        offset=offset,
+    )
 
 
 @router.get("/por-filme/{id_filme}")

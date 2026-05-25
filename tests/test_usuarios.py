@@ -23,18 +23,27 @@ def test_criar_usuario(client):
         assert response.status_code == 200
 
         data = response.json()
-        assert data["message"] == "Usuário criado com sucesso"
-        assert "id" in data
-        assert isinstance(data["id"], int)
 
-        usuario_id = data["id"]
+        assert data["message"] == "Usuário criado com sucesso"
+
+        assert "id_usuario" in data
+        assert isinstance(data["id_usuario"], int)
+
+        usuario_id = data["id_usuario"]
 
     finally:
         if usuario_id is not None:
             conn = get_conn()
+
             try:
                 cur = conn.cursor()
-                cur.execute("DELETE FROM usuarios WHERE id = %s", (usuario_id,))
+
+                cur.execute(
+                    "DELETE FROM usuarios WHERE id = %s",
+                    (usuario_id,)
+                )
+
                 conn.commit()
+
             finally:
                 conn.close()
