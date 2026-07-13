@@ -1,26 +1,35 @@
 # Ambiente virtual
 .venv/
+venv/
 
-# Variáveis de ambiente (NÃO subir senhas)
+# Variáveis de ambiente
 .env
 
-# Cache Python
+# Cache do Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
 
-# Pytest
+# Cache e relatórios de testes
 .pytest_cache/
+.coverage
+htmlcov/
 
-# VSCode
+# Arquivos do sistema
+.DS_Store
+
+# VS Code
 .vscode/
 
-# MacOS
-.DS_Store
+# Arquivos gerados pela exportação ETL
+data/*_export.csv
+data/relatorio_*.csv
 
 # Logs
 *.log
 
-# Arquivos de workspace
+# Backups locais
+*.sql
+
+# VS Code Workspace
 *.code-workspace
