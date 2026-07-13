@@ -274,6 +274,8 @@ http://127.0.0.1:8000/docs
 - Separação de responsabilidades
 - Tratamento de erros HTTP
 - Queries com agregações e filtros dinâmicos
+- JOIN e LEFT JOIN
+- Views analíticas
 - ETL automatizado
 - ETL incremental
 - Integridade referencial com FK
@@ -289,6 +291,48 @@ http://127.0.0.1:8000/docs
 - Deploy em ambiente cloud
 - Frontend consumindo a API
 - CI/CD com GitHub Actions
+
+---
+
+# Demonstrações
+
+## Documentação da API (Swagger)
+
+Documentação automática gerada pelo FastAPI com todos os endpoints disponíveis.
+
+![Swagger Overview](docs/images/swagger-overview.png)
+
+---
+
+## Execução de Endpoint
+
+Exemplo de requisição executada via Swagger retornando dados diretamente do banco MySQL.
+
+![Swagger Response](docs/images/swagger-response.png)
+
+---
+
+## Banco de Dados Relacional (MySQL)
+
+Consulta SQL utilizando JOIN entre tabelas relacionais e visualização das views analíticas.
+
+![DBeaver](docs/images/dbeaver-join.png)
+
+---
+
+## Testes Automatizados
+
+Execução da suíte de testes automatizados utilizando Pytest.
+
+![Pytest](docs/images/pytest.png)
+
+---
+
+## ETL e Exportação de Relatórios
+
+Exportação automatizada de relatórios analíticos e datasets em CSV utilizando Python e Pandas.
+
+![ETL](docs/images/export-csv.png)
 
 ---
 
